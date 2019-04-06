@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../vendored/friend_sites/vendored/seven_zip">
+      <sourceFolder url="file://$MODULE_DIR$/../../vendored/friend_sites/vendored/seven_zip" type="cookbooks-root" />
+    </content>
+    <orderEntry type="jdk" jdkName="Chef DK: /opt/chefdk" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.16.1, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="chef (v14.7.17, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="chef-api (v0.8.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cookstyle (v3.0.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cucumber-tag_expressions (v1.1.1, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="erubis (v2.7.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi-yajl (v2.3.1, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="libyajl2 (v1.2.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logify (v0.2.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.3.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parallel (v1.12.1, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.5, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.0.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v12.3.1, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop (v0.55.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rufus-lru (v1.1.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="stove (v6.0.0, Chef DK: /opt/chefdk) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="treetop (v1.6.10, Chef DK: /opt/chefdk) [gem]" level="application" />
+  </component>
+  <component name="RubyModuleProperties">
+    <option name="autoCreated" value="true" />
+  </component>
+</module>
