@@ -1,9 +1,10 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-FRIEND_SITE_ROOT='/Users/zara/dev/'
+FRIEND_SITE_ROOT='/Users/zara/dev/fronds'
 FRIEND_SITE_FOLDER='fronds'
-VM_DOC_ROOT='/var/www/html'
+VM_DOC_ROOT='/var/www/html/fronds'
+FRONDS_HOSTNAME='fronds.local'
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -13,7 +14,7 @@ Vagrant.configure("2") do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
-
+  config.vm.hostname = FRONDS_HOSTNAME
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "bento/ubuntu-16.04"
@@ -22,7 +23,9 @@ Vagrant.configure("2") do |config|
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
   # config.vm.box_check_update = false
-  config.omnibus.chef_version = :latest
+  if Vagrant.has_plugin?("vagrant-omnibus")
+    config.omnibus.chef_version = 'latest'
+  end
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
@@ -54,20 +57,23 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-    vb.memory = "1024"
+    vb.memory = "2048"
   end
   #
   # View the documentation for the provider you are using for more
   # information on available options.
-  config.vm.provision 'chef_solo' do |chef|
-    chef.cookbooks_path = './vendored'
-    chef.add_recipe 'friend_sites::default'
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = %w[./ ../berks-cookbooks]
+
     chef.json = {
-        friends: {
+        fronds: {
             site_folder: FRIEND_SITE_FOLDER,
             vm_doc_root: VM_DOC_ROOT
         }
     }
+    chef.run_list = [
+        'recipe[fronds::default]'
+    ]
   end
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the

@@ -1,0 +1,22 @@
+Listen 80
+Listen 443
+<VirtualHost *:80>
+  ServerAdmin mlawson1986@gmail.com
+  ServerName <%= node['fronds']['site_folder'] %>.local
+  Redirect / https://<%= node['fronds']['site_folder'] %>.local
+</VirtualHost>
+
+<VirtualHost *:443>
+  ServerAdmin mlawson1986@gmail.com
+  DocumentRoot "<%= node['fronds']['vm_doc_root'] %>/<%= node['fronds']['site_folder'] %>/public"
+  ServerName <%= node['fronds']['server_name'] %>
+  ErrorLog "/var/log/apache2/<%= node['fronds']['site_folder'] %>_error"
+  CustomLog "/var/log/apache2/<%= node['fronds']['site_folder'] %>_custom" common
+  SSLEngine on
+  SSLCertificateFile <%= node['selfsigned_certificate']['destination'] %>/<%= node['fronds']['server_name'] %>.crt
+  SSLCertificateKeyFile <%= node['selfsigned_certificate']['destination'] %>/<%= node['fronds']['server_name'] %>.key
+  <Directory <%= node['fronds']['vm_doc_root'] %>/<%= node['fronds']['site_folder'] %>/public >
+    AllowOverride All
+    Require all granted
+  </Directory>
+</VirtualHost>

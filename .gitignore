@@ -1,3 +1,4 @@
 .vagrant
 vendored
 .idea
+Berksfile.lock

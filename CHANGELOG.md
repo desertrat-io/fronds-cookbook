@@ -1,6 +1,6 @@
-# friend_sites CHANGELOG
+# fronds CHANGELOG
 
-This file is used to list changes made in each version of the friend_sites cookbook.
+This file is used to list changes made in each version of the fronds cookbook.
 
 # 0.1.0
 

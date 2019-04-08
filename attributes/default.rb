@@ -14,12 +14,12 @@ default['selfsigned_certificate']['destination'] = '/etc/apache2/ssl'
 default['apache']['mpm'] = 'prefork'
 default['apache']['log_dir'] = '/var/log/apache2'
 
-default['friends']['packages'] = %w[locate vim git]
-default['friends']['server_name'] = node['friends']['site_folder'] + '.local'
+default['fronds']['packages'] = %w[locate vim git]
+default['fronds']['server_name'] = node['fronds']['site_folder'] + '.local'
 
-default['friends']['db']['version'] = '5.7'
-default['friends']['db']['name'] = 'fronds'
-default['friends']['db']['test_name'] = 'fronds_test'
-default['friends']['db']['initial_root'] = 'rootroot'
+default['fronds']['db']['version'] = '5.7'
+default['fronds']['db']['name'] = 'fronds'
+default['fronds']['db']['test_name'] = 'fronds_test'
+default['fronds']['db']['initial_root'] = 'rootroot'
 
-default['friends']['php']['xdebug_conf'] = '/etc/php/7.2/mods-available/xdebug.ini'
+default['fronds']['php']['xdebug_conf'] = '/etc/php/7.2/mods-available/xdebug.ini'

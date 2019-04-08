@@ -17,7 +17,7 @@ package 'php7.2-zip'
 package 'php7.2-xdebug'
 package 'php7.2-bcmath'
 
-template node['friends']['php']['xdebug_conf'] do
+template node['fronds']['php']['xdebug_conf'] do
   source 'xdebug.ini.erb'
   mode '0644'
 end

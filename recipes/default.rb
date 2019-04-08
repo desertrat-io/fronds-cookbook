@@ -1,13 +1,13 @@
 #
-# Cookbook:: friend_sites
+# Cookbook:: fronds
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
 include_recipe 'openssl-source'
 
-include_recipe 'friend_sites::packages'
-include_recipe 'friend_sites::httpd'
-include_recipe 'friend_sites::php'
-include_recipe 'friend_sites::db'
-include_recipe 'friend_sites::post'
+include_recipe 'fronds::packages'
+include_recipe 'fronds::httpd'
+include_recipe 'fronds::php'
+include_recipe 'fronds::db'
+include_recipe 'fronds::post'
