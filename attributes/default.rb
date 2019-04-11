@@ -11,8 +11,8 @@ default['selfsigned_certificate']['cn'] = 'local'
 default['selfsigned_certificate']['email'] = 'mlawson1986@gmail.com'
 default['selfsigned_certificate']['destination'] = '/etc/apache2/ssl'
 
-default['apache']['mpm'] = 'prefork'
-default['apache']['log_dir'] = '/var/log/apache2'
+
+default['apache2']['log_dir'] = '/var/log/apache2'
 
 default['fronds']['packages'] = %w[locate vim git]
 default['fronds']['server_name'] = node['fronds']['site_folder'] + '.local'

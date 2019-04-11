@@ -1,5 +1,8 @@
 apt_update
-apache2_install 'fronds'
+apache2_install 'fronds' do
+  docroot_dir node['fronds']['vm_doc_root']
+  apache_group node['fronds']['perm_group']
+end
 
 service 'apache2' do
   extend Apache2::Cookbook::Helpers
@@ -10,8 +13,15 @@ end
 
 apache2_module 'ssl'
 apache2_module 'rewrite'
+apache2_module 'vhost_alias'
 apache2_module 'php7' do
   mod_name 'libphp7.2.so'
+end
+apache2_module 'mpm_event' do
+  action :disable
+end
+apache2_module 'mpm_prefork' do
+  action :enable
 end
 
 # create output dir
@@ -35,7 +45,15 @@ bash 'selfsigned_certificate' do
 
 end
 
-apache2_default_site 'fronds' do
-  cookbook 'fronds'
-  template_source 'fronds.conf.erb'
+template 'fronds' do
+  extend Apache2::Cookbook::Helpers
+  path "#{apache_dir}/sites-available/fronds.conf"
+  source 'fronds.conf.erb'
+  action :create_if_missing
+end
+
+apache2_site 'fronds'
+
+apache2_site '000-default' do
+  action :disable
 end
