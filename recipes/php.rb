@@ -16,6 +16,7 @@ package 'php7.2-mysql'
 package 'php7.2-zip'
 package 'php7.2-xdebug'
 package 'php7.2-bcmath'
+package 'php7.2-curl'
 
 template node['fronds']['php']['xdebug_conf'] do
   source 'xdebug.ini.erb'

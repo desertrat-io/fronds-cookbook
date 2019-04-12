@@ -56,7 +56,7 @@ Vagrant.configure('2') do |config|
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
   if Vagrant.has_plugin?('vagrant-bindfs')
-    config.bindfs.bind_folder VM_BIND_ROOT, VM_DOC_ROOT
+    config.bindfs.bind_folder VM_BIND_ROOT, VM_DOC_ROOT, group: 'www-data', owner: 'www-data'
   end
 
   # Provider-specific configuration so you can fine-tune various
