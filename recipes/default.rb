@@ -4,8 +4,6 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
-include_recipe 'openssl-source'
-
 include_recipe 'fronds::packages'
 include_recipe 'fronds::httpd'
 include_recipe 'fronds::php'

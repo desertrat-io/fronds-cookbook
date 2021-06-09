@@ -1,22 +1,36 @@
-apt_repository 'ondrej-php' do
-  uri 'ppa:ondrej/php'
-  components %w(main stable)
+case node['platform']
+when 'centos'
+
+  yum_repository 'remi-php74' do
+    action :create
+  end
+  yum_package 'php74'
+
+when 'ubuntu'
+  apt_repository 'ondrej-php' do
+    uri 'ppa:ondrej/php'
+    components %w[main stable]
+  end
+
+  apt_update
+
+  package "php#{node['fronds']['php']['version']}"
+  # will soon be replaced with a phpbrew compile to fpm
+  package "libapache2-mod-php#{node['fronds']['php']['version']}"
+  package "php#{node['fronds']['php']['version']}-cli"
+  package "php#{node['fronds']['php']['version']}-common"
+  package "php#{node['fronds']['php']['version']}-mbstring"
+  package "php#{node['fronds']['php']['version']}-intl"
+  package "php#{node['fronds']['php']['version']}-xml"
+  package "php#{node['fronds']['php']['version']}-mysql"
+  package "php#{node['fronds']['php']['version']}-zip"
+  package "php#{node['fronds']['php']['version']}-xdebug"
+  package "php#{node['fronds']['php']['version']}-bcmath"
+  package "php#{node['fronds']['php']['version']}-curl"
+
+else
+  Chef::Log.fatal 'ERROR: Platform not supported!'
 end
-
-apt_update
-
-package 'php7.2'
-package 'libapache2-mod-php7.2'
-package 'php7.2-cli'
-package 'php7.2-common'
-package 'php7.2-mbstring'
-package 'php7.2-intl'
-package 'php7.2-xml'
-package 'php7.2-mysql'
-package 'php7.2-zip'
-package 'php7.2-xdebug'
-package 'php7.2-bcmath'
-package 'php7.2-curl'
 
 template node['fronds']['php']['xdebug_conf'] do
   source 'xdebug.ini.erb'

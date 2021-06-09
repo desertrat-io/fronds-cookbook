@@ -17,8 +17,8 @@ AddHandler application/x-httpd-php .php
   ErrorLog "/var/log/apache2/<%= node['fronds']['site_folder'] %>_error"
   CustomLog "/var/log/apache2/<%= node['fronds']['site_folder'] %>_custom" common
   SSLEngine on
-  SSLCertificateFile <%= node['selfsigned_certificate']['destination'] %>/<%= node['fronds']['server_name'] %>.crt
-  SSLCertificateKeyFile <%= node['selfsigned_certificate']['destination'] %>/<%= node['fronds']['server_name'] %>.key
+  SSLCertificateFile <%= node['fronds']['ssl']['crt'] %>
+  SSLCertificateKeyFile <%= ['fronds']['ssl']['key'] %>
   <Directory <%= node['fronds']['vm_doc_root'] %>/public >
     AllowOverride All
     Require all granted
